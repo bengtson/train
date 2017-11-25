@@ -21,3 +21,18 @@ config :logger, :console,
 # Import environment specific config. This must remain at the bottom
 # of this file so it overrides the configuration defined above.
 import_config "#{Mix.env}.exs"
+
+config :train, :piphone,
+  port: 5006
+
+  # Status server configuration
+config :train, :status_server,
+  host: '10.0.1.212', port: 21200, start: :true
+
+config :train, TrainWeb.Endpoint,
+  http: [port: 4408],
+  debug_errors: true,
+  code_reloader: true,
+  check_origin: false,
+  watchers: [node: ["node_modules/brunch/bin/brunch", "watch", "--stdin",
+                    cd: Path.expand("../assets", __DIR__)]]

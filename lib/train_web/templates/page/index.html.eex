@@ -1,36 +1,18 @@
-<div class="jumbotron">
-  <h2><%= gettext "Welcome to %{name}!", name: "Phoenix" %></h2>
-  <p class="lead">A productive web framework that<br />does not compromise speed and maintainability.</p>
+<div style="float: left;">
+  <span style="font-size: 36px; font-style: normal; font-weight: lighter; font-family: 'Open Sans', sans-serif;" title="Tack Så Mycket is Swedish for thank you very much!">
+    Tack Så Mycket
+  </span>
 </div>
 
-<div class="row marketing">
-  <div class="col-lg-6">
-    <h4>Resources</h4>
-    <ul>
-      <li>
-        <a href="http://phoenixframework.org/docs/overview">Guides</a>
-      </li>
-      <li>
-        <a href="https://hexdocs.pm/phoenix">Docs</a>
-      </li>
-      <li>
-        <a href="https://github.com/phoenixframework/phoenix">Source</a>
-      </li>
-    </ul>
-  </div>
+<div style="clear: both; height: 2px; background-color: #804040"></div>
+<div style="clear: both; height: 15px; "></div>
 
-  <div class="col-lg-6">
-    <h4>Help</h4>
-    <ul>
-      <li>
-        <a href="http://groups.google.com/group/phoenix-talk">Mailing list</a>
-      </li>
-      <li>
-        <a href="http://webchat.freenode.net/?channels=elixir-lang">#elixir-lang on freenode IRC</a>
-      </li>
-      <li>
-        <a href="https://twitter.com/elixirphoenix">@elixirphoenix</a>
-      </li>
-    </ul>
-  </div>
+<div style="clear: both;"></div>
+
+<div id="stat-board">
+
+</div>
+<div>
+  Hello
+  <img src="/images/christmas-engine-2.jpg">
 </div>

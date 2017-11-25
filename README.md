@@ -1,19 +1,17 @@
 # Train
 
-To start your Phoenix server:
+This is the control program for the Shop and Christmas train. The train is an
+LGB trolley at this point.
 
-  * Install dependencies with `mix deps.get`
-  * Install Node.js dependencies with `cd assets && npm install`
-  * Start Phoenix endpoint with `mix phx.server`
+Control of the train is through the Pi Phone or through the website generated
+by this application. This app also provides status to Tack Status.
 
-Now you can visit [`localhost:4000`](http://localhost:4000) from your browser.
+## To Do
 
-Ready to run in production? Please [check our deployment guides](http://www.phoenixframework.org/docs/deployment).
-
-## Learn more
-
-  * Official website: http://www.phoenixframework.org/
-  * Guides: http://phoenixframework.org/docs/overview
-  * Docs: https://hexdocs.pm/phoenix
-  * Mailing list: http://groups.google.com/group/phoenix-talk
-  * Source: https://github.com/phoenixframework/phoenix
+  * Clean up the Phoenix html and css to get a basic page.
+  - Get Pi Phone receiver running.
+  * Model the page after the Tack Status page to keep it simple.
+  - Page should have current train status.
+  - Page should have a speed selector from 00 - 100 by 10s.
+  * Get Tack Status GenServer running.
+  - Get Tack Status reporting correct status.

@@ -10,6 +10,9 @@ defmodule Train.Application do
     children = [
       # Start the endpoint when the application starts
       supervisor(TrainWeb.Endpoint, []),
+      supervisor(Train.Status, []),
+      supervisor(PiPhone, []),
+      supervisor(TrainServer, [])
       # Start your own worker by calling: Train.Worker.start_link(arg1, arg2, arg3)
       # worker(Train.Worker, [arg1, arg2, arg3]),
     ]

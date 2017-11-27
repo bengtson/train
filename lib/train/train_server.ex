@@ -57,7 +57,8 @@ defmodule TrainServer do
   end
 
   def cmd c,p do
-    IO.puts "Executing: #{c}, #{p}"
+    System.cmd c, p
+#    IO.puts "Executing: #{c}, #{IO.inspect p}"
   end
 
 end

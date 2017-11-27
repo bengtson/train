@@ -24,15 +24,15 @@ use Mix.Config
 # different ports.
 
 # Watch static and templates for browser reloading.
-config :train, TrainWeb.Endpoint,
-  live_reload: [
-    patterns: [
-      ~r{priv/static/.*(js|css|png|jpeg|jpg|gif|svg)$},
-      ~r{priv/gettext/.*(po)$},
-      ~r{lib/train_web/views/.*(ex)$},
-      ~r{lib/train_web/templates/.*(eex)$}
-    ]
-  ]
+#config :train, TrainWeb.Endpoint,
+#  live_reload: [
+#    patterns: [
+#      ~r{priv/static/.*(js|css|png|jpeg|jpg|gif|svg)$},
+#      ~r{priv/gettext/.*(po)$},
+#      ~r{lib/train_web/views/.*(ex)$},
+#      ~r{lib/train_web/templates/.*(eex)$}
+#    ]
+#  ]
 
 # Do not include metadata nor timestamps in development logs
 config :logger, :console, format: "[$level] $message\n"

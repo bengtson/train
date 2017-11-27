@@ -30,9 +30,9 @@ config :train, :status_server,
   host: '10.0.1.212', port: 21200, start: :true
 
 config :train, TrainWeb.Endpoint,
-  http: [port: 80],
+  http: [port: 4408],
   debug_errors: true,
-  code_reloader: true,
+  code_reloader: false,
   check_origin: false,
   watchers: [node: ["node_modules/brunch/bin/brunch", "watch", "--stdin",
                     cd: Path.expand("../assets", __DIR__)]]

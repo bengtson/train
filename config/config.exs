@@ -30,7 +30,7 @@ config :train, :status_server,
   host: '10.0.1.212', port: 21200, start: :true
 
 config :train, TrainWeb.Endpoint,
-  http: [port: 4408],
+  http: [port: 80],
   debug_errors: true,
   code_reloader: true,
   check_origin: false,

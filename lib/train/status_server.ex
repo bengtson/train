@@ -78,7 +78,7 @@ defmodule Train.Status do
       status: "All Aboard",
       metrics: metrics,
       state: :nominal,
-      link: "http://10.0.1.202:4408"
+      link: "http://10.0.1.211:80"
     }
 
     stat

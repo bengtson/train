@@ -8,21 +8,42 @@ by this application. This app also provides status to Tack Status.
 
 ## To Do
 
-  * Clean up the Phoenix html and css to get a basic page.
-  - Get Pi Phone receiver running.
-  * Model the page after the Tack Status page to keep it simple.
+  - Change application to --no-brunch. Brunch doesn't work well on Pi. This might make it more difficult to get websockets running for the webpage but it can be done.  Do it.
   - Page should have current train status.
   - Page should have a speed selector from 00 - 100 by 10s.
-  * Get Tack Status GenServer running.
   - Get Tack Status reporting correct status.
+  - Use Christmas Engine photo from Nov 15 through Dec 31.
 
 ## Generating Raspberry Pi OS
+
+Note that I could not get Brunch working. Elixir programs running here should be built so they do not need brunch.
 
 Load Raspbian version of 'jessie' at: http://downloads.raspberrypi.org/raspbian/images/raspbian-2017-07-05/
 
 Following instructions on the Elixir site for loading Elixir and of course Erlang. Note that this also loaded WiringPi.
 
+Load the erlang tools with ....
+sudo apt-get update
+sudo apt-get install esl-erlang
+
 DONE!
+
+See following ...
+
+You need to install the esl-erlang package which comes with all the tools.
+
+My Phoenix installation procedure for Ubuntu is this:
+
+# Ubuntu 15.10 (wily)
+sudo apt-get install inotify-tools
+wget https://packages.erlang-solutions.com/erlang-solutions_1.0_all.deb && sudo dpkg -i erlang-solutions_1.0_all.deb
+wget http://packages.erlang-solutions.com/ubuntu/erlang_solutions.asc
+sudo apt-key add erlang_solutions.asc
+sudo apt-get update
+sudo apt-get install esl-erlang
+sudo apt-get install elixir
+mix local.hex
+mix archive.install https://github.com/phoenixframework/phoenix/releases/download/v1.1.0/phoenix_new-1.1.0.ez
 
 ### Oops
 

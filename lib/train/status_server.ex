@@ -48,7 +48,7 @@ defmodule Train.Status do
   end
 
   def handle_call(:update_status, _from, state) do
-    IO.inspect {:checking_status}
+#    IO.inspect {:checking_status}
     status = generate_status()
     send_packet status
     {:reply, :ok, state}
@@ -63,19 +63,38 @@ defmodule Train.Status do
 
   def generate_status do
 
-    IO.inspect {:generating_status}
+#    IO.inspect {:generating_status}
 
-    speed = TrainServer.get_speed
+    {speed, pwm_speed} = TrainServer.get_speed
 
     metrics =
       [
-        %Metric{name: "Speed", value: "#{speed}%"},
+        %Metric{name: "Speed", value: "#{speed} (#{pwm_speed})"},
       ]
+
+    {{_year,month,day},{_hour,_min,_sec}} = :calendar.local_time()
+    icon_filename =
+      cond do
+        (month >= 11 && day > 15) || month == 12 ->
+          "christmas-engine-2.jpg"
+        true ->
+          "trolley-1.png"
+      end
+
+    status =
+      cond do
+        speed == 0 ->
+          "Lake Sara Station"
+        speed == 1 ->
+          "All Aboard!"
+        true ->
+          "Enroute"
+      end
 
     stat = %Status{
       name: "Train",
-      icon: get_icon("assets/static/images/christmas-engine-2.jpg"),
-      status: "All Aboard",
+      icon: get_icon("assets/static/images/" <> icon_filename),
+      status: status,
       metrics: metrics,
       state: :nominal,
       link: "http://10.0.1.211:4408"
@@ -85,7 +104,7 @@ defmodule Train.Status do
   end
 
   defp send_packet stat do
-    IO.inspect {:sending_packet}
+#    IO.inspect {:sending_packet}
     with  {:ok, packet} <- Poison.encode(stat),
           {:ok, socket} <- :gen_tcp.connect('10.0.1.202', 21200,
                            [:binary, active: false])

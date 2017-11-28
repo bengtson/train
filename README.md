@@ -8,11 +8,8 @@ by this application. This app also provides status to Tack Status.
 
 ## To Do
 
-  - Change application to --no-brunch. Brunch doesn't work well on Pi. This might make it more difficult to get websockets running for the webpage but it can be done.  Do it.
   - Page should have current train status.
   - Page should have a speed selector from 00 - 100 by 10s.
-  - Get Tack Status reporting correct status.
-  - Use Christmas Engine photo from Nov 15 through Dec 31.
 
 ## Generating Raspberry Pi OS
 

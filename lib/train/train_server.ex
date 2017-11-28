@@ -20,7 +20,7 @@ defmodule TrainServer do
   """
   def init (:ok) do
     initialize_ports()
-    {:ok, %{speed: 0}}
+    {:ok, %{speed: 0, pwm_speed: 0}}
   end
 
   # --------- Client APIs
@@ -32,7 +32,7 @@ defmodule TrainServer do
     pwm_speed = slope * speed + intercept
     pwm_speed = trunc pwm_speed
     pwm_speed = if speed == 0 do 0 else pwm_speed end
-    GenServer.call TrainServer, {:set_speed, pwm_speed}
+    GenServer.call TrainServer, {:set_speed, speed, pwm_speed}
     IO.puts "Setting Speed to: #{pwm_speed}%"
   end
 
@@ -42,13 +42,13 @@ defmodule TrainServer do
 
   # ---------- GenServer Callbacks
 
-  def handle_call({:set_speed, speed}, _from, state) do
-    System.cmd "gpio", ["pwm", "1", "#{speed}"]
-    {:reply, :ok, %{ state | speed: speed}}
+  def handle_call({:set_speed, speed, pwm_speed}, _from, state) do
+    System.cmd "gpio", ["pwm", "1", "#{pwm_speed}"]
+    {:reply, :ok, %{ state | speed: speed, pwm_speed: pwm_speed}}
   end
 
   def handle_call(:get_speed, _from, state) do
-    {:reply, state.speed, state}
+    {:reply, {state.speed, state.pwm_speed}, state}
   end
 
   # Sets up the GPIO port for hardware PWM control.

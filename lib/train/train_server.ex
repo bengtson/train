@@ -34,6 +34,7 @@ defmodule TrainServer do
   # ---------- GenServer Callbacks
 
   def handle_call({:set_speed, speed}, _from, state) do
+    System.cmd "gpio", ["pwm", "1", "#{speed}"]
     {:reply, :ok, %{ state | speed: speed}}
   end
 

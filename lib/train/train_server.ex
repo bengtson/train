@@ -29,9 +29,9 @@ defmodule TrainServer do
   def set_speed speed do
     slope = (@train_fastest - @train_slowest) / (9.0-1.0)
     intercept = @train_fastest - slope * 9.0
-    speed = slope * speed + intercept
-    speed = trunc speed
-    speed = if speed == 0 do 0 else speed end
+    pwm_speed = slope * speed + intercept
+    pwm_speed = trunc pwm_speed
+    pwm_speed = if speed == 0 do 0 else pwm_speed end
     GenServer.call TrainServer, {:set_speed, speed}
     IO.puts "Setting Speed to: #{speed}%"
   end

@@ -6,6 +6,9 @@ defmodule TrainServer do
   """
   use GenServer
 
+  @train_slowest 70
+  @train_fastest 150
+
   @doc """
   Starts the GenServer. This of course calls init with the :ok parameter.
   """
@@ -22,7 +25,13 @@ defmodule TrainServer do
 
   # --------- Client APIs
 
+  # Speed will be 0 - 9.
   def set_speed speed do
+    slope = (@train_fastest - @train_slowest) / (9.0-1.0)
+    intercept = @train_fastest - slope * 9.0
+    speed = slope * speed + intercept
+    speed = trunc speed
+    speed = if speed == 0 do 0 else speed end
     GenServer.call TrainServer, {:set_speed, speed}
     IO.puts "Setting Speed to: #{speed}%"
   end

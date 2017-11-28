@@ -66,7 +66,7 @@ defmodule PiPhone do
         {:idle, nil, nil}
       true ->
         {num,""} = Integer.parse number
-        speed = num * 10
+        speed = num
         TrainServer.set_speed speed
         {:idle, nil, nil}
     end

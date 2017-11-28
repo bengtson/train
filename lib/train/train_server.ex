@@ -32,8 +32,8 @@ defmodule TrainServer do
     pwm_speed = slope * speed + intercept
     pwm_speed = trunc pwm_speed
     pwm_speed = if speed == 0 do 0 else pwm_speed end
-    GenServer.call TrainServer, {:set_speed, speed}
-    IO.puts "Setting Speed to: #{speed}%"
+    GenServer.call TrainServer, {:set_speed, pwm_speed}
+    IO.puts "Setting Speed to: #{pwm_speed}%"
   end
 
   def get_speed do

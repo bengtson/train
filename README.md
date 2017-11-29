@@ -8,6 +8,18 @@ by this application. This app also provides status to Tack Status.
 
 ## To Do
 
+## Loading to Raspberry Pi
+
+sudo systemctl stop tack-traincontroller.service
+cd /home/pi
+rm -rf train
+git clone https://github.com/bengtson/train.git
+cd train
+mix deps.get
+mix phx.server
+CNTRL-C, CNTRL-C
+sudo systemctl tack-traincontroller.service
+
 ## GPIO Commands Required
 
 The following commands initialize the hardware pwm port on the Raspberry Pi:

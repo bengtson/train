@@ -17,6 +17,9 @@ defmodule TrainWeb.Router do
     pipe_through :browser # Use the default browser stack
 
     get "/", PageController, :index
+    get "/command", PageController, :command
+    get "/faster", PageController, :faster
+    get "/slower", PageController, :slower
   end
 
   # Other scopes may use custom stacks.

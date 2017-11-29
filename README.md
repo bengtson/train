@@ -8,8 +8,22 @@ by this application. This app also provides status to Tack Status.
 
 ## To Do
 
-  - Page should have current train status.
-  - Page should have a speed selector from 00 - 100 by 10s.
+## GPIO Commands Required
+
+The following commands initialize the hardware pwm port on the Raspberry Pi:
+
+  gpio mode 1 pwm
+  gpio pwm-ms
+  gpio pwmr 256
+  gpio pwmc 4
+  gpio pwm 1 0
+
+Note that the last command sets the pwm output to 0.
+To run the train enter the following:
+
+  gpio pwm 1 n
+
+Where n is from 0 to 255 (stopped full on). 255 is too fast for the train either in the shop or around the tree.
 
 ## Generating Raspberry Pi OS
 

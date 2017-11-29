@@ -1,0 +1,13 @@
+[Unit]
+Description=Train Controller
+Wants=network-online.target
+After=network-online.target
+
+[Service]
+Type=idle
+Environment=HOME=/home/pi/
+WorkingDirectory=/home/pi/train
+ExecStart=/usr/local/bin/mix phx.server
+
+[Install]
+WantedBy=multi-user.target

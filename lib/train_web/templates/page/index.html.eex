@@ -2,6 +2,12 @@
   <span style="font-size: 36px; font-style: normal; font-weight: lighter; font-family: 'Open Sans', sans-serif;" title="Tack Så Mycket is Swedish for thank you very much!">
     Tack Så Mycket
   </span>
+  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+  <img src="/images/train.jpg" height="30">
+  <span style="font-size: 30px; font-style: normal; font-weight: lighter; font-family: 'Open Sans', sans-serif;" >
+    &nbsp;&nbsp;&nbsp;<%= @speed %> MPH
+  </span>
+
 </div>
 
 <div style="clear: both; height: 2px; background-color: #804040"></div>
@@ -13,6 +19,7 @@
 
 </div>
 <div>
-  Hello
-  <img src="/images/christmas-engine-2.jpg">
+  <a href="/slower"><img src="/images/reverse.png" height="50"></a>
+  <a href="/command?speed=0"><img src="/images/stop.png" height="50"></a>
+  <a href="/faster"><img src="/images/forward.png" height="50"></a>
 </div>
